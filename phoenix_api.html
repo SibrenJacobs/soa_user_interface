@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phoenix API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+        <a class="nav-link text-white" href="index.html">Home</a>
+        <a class="nav-link text-white" href="phoenix_api.html">Phoenix API</a>
+        <a class="nav-link text-white" href="django_api.html">Django API</a>
+        <a class="nav-link text-white" href="spring_api.html">Spring API</a>
+    </nav>
+</header>
+<main>
+    <h1>Phoenix API</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_create_form">Create new book</button>
+                <div class="collapse" id="collapse_create_form">
+                    <div class="form-group">
+                        <form id="create_form">
+                            <div>
+                                <label for="create_author">Author</label>
+                                <input class="form-control" type="text" id="create_author" name="author">
+                            </div>
+                            <div>
+                                <label for="create_name">Name</label>
+                                <input class="form-control" type="text" id="create_name" name="name">
+                            </div>
+                            <div>
+                                <label for="create_pages">Pages</label>
+                                <input class="form-control" type="number" id="create_pages" name="pages">
+                            </div>
+                            <button class="btn btn-secondary" type="submit" id="create">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_search_form">Search book</button>
+                <div class="collapse" id="collapse_search_form">
+                    <div class="form-group">
+                        <form id="search_form">
+                            <div>
+                                <label for="search_id">ID</label>
+                                <input class="form-control" type="text" id="search_id">
+                            </div>
+                            <button class="btn btn-secondary" type="submit" id="search">Search</button>
+                            <button class="btn btn-secondary" type="submit" id="clear">Clear</button>
+                        </form>
+                    </div>
+                </div>
+                <div id="found">
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_update_form">Details book</button>
+                    <div class="collapse show" id="collapse_update_form">
+                        <div class="form-group">
+                            <form id="update_form">
+                                <div>
+                                    <label for="update_id">ID</label>
+                                    <input readonly class="form-control" type="text" id="update_id">
+                                </div>
+                                <div>
+                                    <label for="update_author">Author</label>
+                                    <input class="form-control" type="text" id="update_author" name="author">
+                                </div>
+                                <div>
+                                    <label for="update_name">Name</label>
+                                    <input class="form-control" type="text" id="update_name" name="name">
+                                </div>
+                                <div>
+                                    <label for="update_pages">Pages</label>
+                                    <input class="form-control" type="number" id="update_pages" name="pages">
+                                </div>
+                                <button class="btn btn-secondary" type="submit" id="update">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h2>Overview Books</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Author</th>
+                    <th>Name</th>
+                    <th>Pages</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody id="overview">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<script>
+    const url = "http://localhost:4000/api/books/"; // last "/" is needed
+    const url_get_one = url;
+    const url_get_all = url;
+    const url_add = url;
+    const url_update = url;
+    const url_delete = url;
+    const keys = ["id","author","name","pages"];
+    const key_id = "id";
+
+</script>
+<script type="text/javascript" src="js/crud.js"></script>
+</body>
+</html>
